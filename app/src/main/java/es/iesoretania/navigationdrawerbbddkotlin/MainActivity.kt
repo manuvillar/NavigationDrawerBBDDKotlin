@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        supportActionBar?.title = "Inicio"
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -91,6 +92,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         db.insert("empleado", null, values)
-
+        //db.close()
     }
 }
