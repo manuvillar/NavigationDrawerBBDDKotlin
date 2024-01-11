@@ -2,4 +2,23 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation" />
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/inicioFragment">
+    <fragment
+        android:id="@+id/inicioFragment"
+        android:name="es.iesoretania.navigationdrawerbbddkotlin.fragmentos.InicioFragment"
+        android:label="InicioFragment" />
+    <fragment
+        android:id="@+id/insertarFragment"
+        android:name="es.iesoretania.navigationdrawerbbddkotlin.fragmentos.InsertarFragment"
+        android:label="InsertarFragment" />
+    <fragment
+        android:id="@+id/borrarFragment"
+        android:name="es.iesoretania.navigationdrawerbbddkotlin.fragmentos.BorrarFragment"
+        android:label="BorrarFragment" />
+    <fragment
+        android:id="@+id/listarFragment"
+        android:name="es.iesoretania.navigationdrawerbbddkotlin.fragmentos.ListarFragment"
+        android:label="fragment_listar"
+        tools:layout="@layout/fragment_listar" />
+</navigation>

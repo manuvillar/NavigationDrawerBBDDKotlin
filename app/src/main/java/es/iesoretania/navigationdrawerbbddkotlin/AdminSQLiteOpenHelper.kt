@@ -12,7 +12,7 @@ class AdminSQLiteOpenHelper(
 ) : SQLiteOpenHelper(context, name, factory, version) {
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL("CREATE TABLE empleado (\n" +
-                          "id INTEGER PRIMARY KEY,\n" +
+                          "id INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
                           "nombre TEXT NOT NULL,\n" +
                           "apellido TEXT NOT NULL,\n" +
                           "salario REAL\n" +

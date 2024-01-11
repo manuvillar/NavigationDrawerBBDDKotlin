@@ -24,19 +24,19 @@
         app:layout_constraintTop_toBottomOf="@id/title">
 
         <EditText
-            android:id="@+id/employeeName"
+            android:id="@+id/edNombreEmpleado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Introduce el nombre" />
 
         <EditText
-            android:id="@+id/employeeSurname"
+            android:id="@+id/edApellidosEmpleado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Introduce los apellidos" />
 
         <EditText
-            android:id="@+id/employeeSalary"
+            android:id="@+id/edSalarioEmepleado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Introduce el salario"
@@ -54,7 +54,7 @@
         app:layout_constraintTop_toBottomOf="@id/inputFields">
 
         <Button
-            android:id="@+id/acceptButton"
+            android:id="@+id/BotonAceptarInsertar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -65,7 +65,7 @@
             android:layout_height="match_parent" />
 
         <Button
-            android:id="@+id/cancelButton"
+            android:id="@+id/BotonCancelarInsertar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
