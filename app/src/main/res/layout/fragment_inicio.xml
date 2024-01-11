@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/welcomeImage"
-        android:layout_width="192dp"
-        android:layout_height="185dp"
+        android:layout_width="271dp"
+        android:layout_height="247dp"
         android:src="@drawable/inicio"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

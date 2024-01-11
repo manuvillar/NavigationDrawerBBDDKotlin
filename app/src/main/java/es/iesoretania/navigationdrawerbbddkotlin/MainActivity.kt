@@ -1,8 +1,11 @@
 package es.iesoretania.navigationdrawerbbddkotlin
 
+import android.content.ContentValues
 import android.os.Bundle
 import android.view.Menu
-import com.google.android.material.snackbar.Snackbar
+import android.view.View
+import android.widget.EditText
+import androidx.appcompat.app.AlertDialog
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -27,8 +30,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.appBarMain.toolbar)
 
         binding.appBarMain.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            dialogoInsertar(view)
         }
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
@@ -53,5 +55,42 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.contenedorPrincipal)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    private fun dialogoInsertar (view: View){
+        val builder = AlertDialog.Builder(view.context)
+        val inflater = layoutInflater
+        builder.setTitle("Datos del nuevo empleado")
+
+        val dialogLayout = inflater.inflate(R.layout.layout_insertar, null)
+        val edNombreEmpleado = dialogLayout.findViewById<EditText>(R.id.edNombreEmpleado)
+        val edApellidosEmpleado = dialogLayout.findViewById<EditText>(R.id.edApellidosEmpleado)
+        val edSalarioEmpleado = dialogLayout.findViewById<EditText>(R.id.edSalarioEmepleado)
+
+        builder.setView(dialogLayout)
+        builder.setPositiveButton("Aceptar") { dialogInterface, i ->
+            val nombre = edNombreEmpleado.text.toString()
+            val apellidos = edApellidosEmpleado.text.toString()
+            val salario = edSalarioEmpleado.text.toString().toDouble()
+            insertar(view, nombre, apellidos, salario)
+        }
+        builder.setNegativeButton("Cancelar") { dialogInterface, i ->
+            dialogInterface.dismiss()
+        }
+        builder.show()
+    }
+
+    private fun insertar (view: View, nombre: String, apellidos: String, salario: Double){
+        val dbHelper = AdminSQLiteOpenHelper(view.context, "empleados", null, 1)
+        val db = dbHelper.writableDatabase
+
+        val values = ContentValues().apply {
+            put("nombre", nombre)
+            put("apellido", apellidos)
+            put("salario", salario)
+        }
+
+        db.insert("empleado", null, values)
+
     }
 }
