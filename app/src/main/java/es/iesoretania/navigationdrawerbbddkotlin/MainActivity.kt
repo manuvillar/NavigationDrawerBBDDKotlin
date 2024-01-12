@@ -6,7 +6,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -23,14 +22,17 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-    private lateinit var bindingheader: NavHeaderMainBinding
+    //private lateinit var bindingHeader: NavHeaderMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
-        bindingheader = NavHeaderMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val navigationView: NavigationView = findViewById(R.id.nav_view)
+        val headerView: View = navigationView.getHeaderView(0)
+        val bindingHeader = NavHeaderMainBinding.bind(headerView)
 
         setSupportActionBar(binding.appBarMain.toolbar)
 
@@ -51,8 +53,8 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         supportActionBar?.title = "Inicio"
-        bindingheader.imageView.setImageResource(R.drawable.empresa)
-        bindingheader.TextView.text = "Empresa"
+        bindingHeader.imageView.setImageResource(R.drawable.empresa)
+        bindingHeader.TextView.text = "Empresa"
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
