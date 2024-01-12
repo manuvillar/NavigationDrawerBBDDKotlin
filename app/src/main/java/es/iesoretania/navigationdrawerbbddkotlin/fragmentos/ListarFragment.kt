@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import androidx.appcompat.app.AppCompatActivity
 import es.iesoretania.navigationdrawerbbddkotlin.AdminSQLiteOpenHelper
 import es.iesoretania.navigationdrawerbbddkotlin.R
 import es.iesoretania.navigationdrawerbbddkotlin.adaptador.Empleado
@@ -28,6 +29,7 @@ class ListarFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        (activity as AppCompatActivity).supportActionBar?.title = "Listado de Empleados"
         val dbHelper = AdminSQLiteOpenHelper(view.context, "empleados", null, 1)
         val db = dbHelper.readableDatabase
 

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import es.iesoretania.navigationdrawerbbddkotlin.R
 import es.iesoretania.navigationdrawerbbddkotlin.databinding.EmpleadoItemBinding
 
 class MiAdaptadorEmpleados(
@@ -24,6 +25,8 @@ class MiAdaptadorEmpleados(
         binding.textViewNombre.text = elementoActual.nombre
         binding.textViewApellidos.text = elementoActual.apellidos
         binding.textViewSalario.text = elementoActual.salario.toString()
+
+        binding.imageView.setImageResource(R.drawable.avatar)
 
         return v
     }
